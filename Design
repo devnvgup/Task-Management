@@ -1,0 +1,31 @@
+Link Design : https://dribbble.com/shots/24748298-BordUp-HR-Recruitment-Dashboard
+
+Overview App : ![alt text](image.png)
+Create Task : ![alt text](image-1.png)
+
+Technologies : 
+    + Front end : Reactjs
+    + Back end : Nodejs
+    + Authenication: Firebase
+    + Database : Moongo DB
+
+- Design component : 
+   + App
+       |
+       |____SidbarComponent
+        |                |
+        |                |___HeaderSideBarComponent (Avatar, name)
+        |                |
+        |                |__ManageAllTaskComponent (CRUD)
+        |                |
+        |                |__ImportantTaskComponent 
+        |                |
+        |                |__CompletedTaskComponent
+        |                |
+        |                |__firstHiorityComponent
+        |
+        |
+        |
+        |__contentComponent
+        |
+        |__signOutComponet
