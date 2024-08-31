@@ -180,6 +180,122 @@ input:focus {
 }
 
 .choosen {
-  border-right: 3px green solid;
+  border-right: 2px green solid;
   background-color: rgba(128, 128, 128, 0.5);
+  color :#ffffff !important;
+}
+
+.allTask__container {
+  padding: 10px;
+  overflow-x: auto;
+  height: 514px;
+  padding-top: 0px;
+}
+
+.allTask__header {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0; /* Khoảng cách từ trên cùng của viewport */
+  height: auto;
+  background-color: #1C1C1C;
+  padding-top: 20px;
+}
+
+.allTask__title {
+  font-size: 20px;
+}
+
+.border {
+  border-bottom: 3px green solid;
+}
+
+.allTask__icon {
+  color: rgba(128, 128, 128, 0.5);;
+}
+
+.listTask {
+  padding: 20px 5px;
+}
+
+.listTask___container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list__item {
+  width: 100%;
+  height: 210px;
+  background-color: rgba(128, 128, 128, 0.5);
+  border-radius:10px ;
+  padding: 10px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.item__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.item__content {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.item__updated{
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+
+.item__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item__status {
+  border-radius: 50px;
+  padding: 5px 15px;
+}
+
+.item__status__completed {
+  background-color: #198754;
+}
+
+.item__status__incomplete {
+  background-color: #dc3545;
+}
+
+.item__status:hover {
+  cursor: pointer;
+}
+
+.defaut__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px rgba(128, 128, 128, 0.5) solid;
+  height: 210px;
+  border-radius:10px ;
+  padding: 10px;
+  margin-right: 15px;
+  color: rgba(128, 128, 128, 0.5);
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.col {
+  flex: 1;
+  max-width: 25%; /* Mỗi cột chiếm 25% chiều rộng */
+  box-sizing: border-box;
+  padding: 10px; /* Tùy chỉnh padding */
 }
