@@ -7,6 +7,8 @@ import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { AuthContext } from '../context/AuthProvider';
 import { User, getAuth } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -15,6 +17,7 @@ function SideBar() {
     let user: User | null
     let img: string = 'default.jpg';
     let displayName: string = 'defaultName'
+    const navigate = useNavigate()
     if (authContext) {
         user = authContext.user
         if (user && user.photoURL) {
@@ -47,6 +50,7 @@ function SideBar() {
         if (allTaskRef.current) {
             allTaskRef.current.classList.add('choosen');
         }
+        navigate("/allTask")
     }
 
     const handleClickImportant = () => {
@@ -54,18 +58,21 @@ function SideBar() {
         if (importantRef.current) {
             importantRef.current.classList.add('choosen');
         }
+        navigate("/importantTask")
     }
     const handleClickCompleted = () => {
         removeExistClassList()
         if (completedRef.current) {
             completedRef.current.classList.add('choosen');
         }
+        navigate("/completedTask")
     }
     const handleClickDoItNow = () => {
         removeExistClassList()
         if (doItNowRef.current) {
             doItNowRef.current.classList.add('choosen');
         }
+        navigate("/doItNowTask")
     }
 
     const handleSignOut = () => {
