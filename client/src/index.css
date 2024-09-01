@@ -188,7 +188,7 @@ input:focus {
 .allTask__container {
   padding: 10px;
   overflow-x: auto;
-  height: 514px;
+  max-height: 100%;
   padding-top: 0px;
 }
 
@@ -288,6 +288,10 @@ input:focus {
   color: rgba(128, 128, 128, 0.5);
 }
 
+.defaut__item:hover {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
 .row {
   display: flex;
   width: 100%;
@@ -298,4 +302,12 @@ input:focus {
   max-width: 25%; /* Mỗi cột chiếm 25% chiều rộng */
   box-sizing: border-box;
   padding: 10px; /* Tùy chỉnh padding */
+}
+
+.customModal {
+  background-color: rgba(128, 128, 128, 0.5) !important;
+}
+
+.popup-create {
+  color: #fff;
 }

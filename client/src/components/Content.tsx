@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import AllTask from './AllTask';
 import ImportantTask from './ImportantTask';
 import CompletedTask from './CompletedTask';
@@ -23,9 +23,9 @@ function Content() {
   }, [currentPath])
 
   return (
-    <div>
-      {componentNode}
-    </div>
+    <>
+    {componentNode}
+    </>
   )
 }
 

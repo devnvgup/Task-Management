@@ -1,10 +1,11 @@
 import React from 'react'
+import ContentCommon from './common/ContentCommon'
 
 function DoItNowTask() {
   return (
-    <div>
-      DoItNowTask
-    </div>
+    <>
+    <ContentCommon name="Do It Now Task Tasks"/>
+    </>
   )
 }
 

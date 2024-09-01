@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState, ReactNode } from "react";
-import { getAuth, User, Auth } from "firebase/auth";
+import { getAuth, User } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 

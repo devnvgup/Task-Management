@@ -1,10 +1,11 @@
 import React from 'react'
+import ContentCommon from './common/ContentCommon'
 
 function ImportantTask() {
   return (
-    <div>
-      ImportantTask
-    </div>
+    <>
+    <ContentCommon name="Important Tasks"/>
+    </>
   )
 }
 
