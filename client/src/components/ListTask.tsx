@@ -1,4 +1,3 @@
-import React from 'react'
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DefaultItem from './DefaultItem';
@@ -40,7 +39,6 @@ function ListTask() {
                     ))}
                 </div>
             ))}
-            {/* <DefaultItem /> */}
         </div>
     )
 }
