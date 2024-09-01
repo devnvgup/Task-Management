@@ -145,13 +145,13 @@ input:focus {
   /* padding: 3px; */
   font-size: 15px;
   list-style-type: none;
-  
+
 }
 
 .li__option {
   display: flex;
   align-items: center;
-  padding : 6px 0;
+  padding: 6px 0;
   color: #808080 !important;
   font-weight: 100;
   justify-content: center;
@@ -165,7 +165,8 @@ input:focus {
 
 .li__option span {
   display: inline-flex;
-  align-items: center; /* Căn giữa icon và text nếu cần */
+  align-items: center;
+  /* Căn giữa icon và text nếu cần */
 }
 
 .li__option:hover {
@@ -182,7 +183,7 @@ input:focus {
 .choosen {
   border-right: 2px green solid;
   background-color: rgba(128, 128, 128, 0.5);
-  color :#ffffff !important;
+  color: #ffffff !important;
 }
 
 .allTask__container {
@@ -196,7 +197,8 @@ input:focus {
   display: flex;
   justify-content: space-between;
   position: sticky;
-  top: 0; /* Khoảng cách từ trên cùng của viewport */
+  top: 0;
+  /* Khoảng cách từ trên cùng của viewport */
   height: auto;
   background-color: #1C1C1C;
   padding-top: 20px;
@@ -211,7 +213,8 @@ input:focus {
 }
 
 .allTask__icon {
-  color: rgba(128, 128, 128, 0.5);;
+  color: rgba(128, 128, 128, 0.5);
+  ;
 }
 
 .listTask {
@@ -227,7 +230,7 @@ input:focus {
   width: 100%;
   height: 210px;
   background-color: rgba(128, 128, 128, 0.5);
-  border-radius:10px ;
+  border-radius: 10px;
   padding: 10px;
   margin-right: 15px;
   display: flex;
@@ -247,7 +250,7 @@ input:focus {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.item__updated{
+.item__updated {
   margin-bottom: 10px;
   font-size: 15px;
 }
@@ -282,7 +285,7 @@ input:focus {
   justify-content: center;
   border: 1px rgba(128, 128, 128, 0.5) solid;
   height: 210px;
-  border-radius:10px ;
+  border-radius: 10px;
   padding: 10px;
   margin-right: 15px;
   color: rgba(128, 128, 128, 0.5);
@@ -299,9 +302,11 @@ input:focus {
 
 .col {
   flex: 1;
-  max-width: 25%; /* Mỗi cột chiếm 25% chiều rộng */
+  max-width: 25%;
+  /* Mỗi cột chiếm 25% chiều rộng */
   box-sizing: border-box;
-  padding: 10px; /* Tùy chỉnh padding */
+  padding: 10px;
+  /* Tùy chỉnh padding */
 }
 
 .customModal {
@@ -310,4 +315,66 @@ input:focus {
 
 .popup-create {
   color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.popup-title {
+}
+
+.x__btn {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  top: 22px;
+}
+
+.title__area {
+  background-color: rgba(128, 128, 128, 0.5);
+  max-width: 100%;
+  min-height: 40px;
+  margin-bottom: 10px;
+}
+
+.des__area {
+  background-color: rgba(128, 128, 128, 0.5);
+  min-height: 100px;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.popup-date {
+  
+}
+
+.datetime-local{
+  background-color: rgba(128, 128, 128, 0.5) !important;
+  margin-bottom: 10px;
+}
+
+.completed__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.important__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.create__container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create__btn {
+  display: flex;
+  align-items: center;
+  background-color: #0d6efd;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 15px;
+  margin-top: 10px;
 }

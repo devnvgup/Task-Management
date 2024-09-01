@@ -1,34 +1,49 @@
-import * as React from 'react';
+
 import clsx from 'clsx';
 import { styled, css } from '@mui/system';
-import {Modal as BaseModal} from '@mui/material';
+import { Modal as BaseModal } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import React, { useContext } from 'react';
+import { PopUpContext } from './common/ContentCommon';
 
 export default function ModalUnstyled() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const context = useContext(PopUpContext)
+
+  const handleCreateTask=()=>{
+    context?.setStatePopup(false)
+  }
 
   return (
     <div>
       <Modal
         aria-labelledby="unstyled-modal-title customModal"
         aria-describedby="unstyled-modal-description"
-        open={true}
-        onClose={handleClose}
+        open={context?.statePopUp ?? false}
         slots={{ backdrop: StyledBackdrop }}
       >
         <ModalContent sx={{ width: 400 }}>
           <div className='popup-create'>Create a Task</div>
+          <div onClick={() => context?.setStatePopup(false)} className='x__btn'>x</div>
           <div className='popup-title'>Title</div>
-          <textarea></textarea>
+          <textarea className='title__area'></textarea>
           <div className='popup-des'>Description</div>
-          <textarea></textarea>
+          <textarea className='des__area'></textarea>
           <div className='popup-date'>Date</div>
-          <input type="datetime-local" name="appointment" />
-          <span>Toggle Completed</span>
-          <input type='checkbox'/>
-          <span>Toggle Important</span>
-          <input type='checkbox'/>
+          <input type="datetime-local" name="appointment" className='datetime-local' />
+          <div className='completed__container'>
+            <span>Toggle Completed</span>
+            <input style={{ width: "auto" }} type='checkbox' />
+          </div>
+          <div className='important__container'>
+            <span>Toggle Important</span>
+            <input style={{ width: "auto" }} type='checkbox' />
+          </div>
+          <div className='create__container'>
+            <div className='create__btn' onClick={handleCreateTask}>
+              <AddIcon />
+              Create Task
+            </div>
+          </div>
         </ModalContent>
       </Modal>
     </div>
@@ -62,7 +77,7 @@ const StyledBackdrop = styled(Backdrop)`
   z-index: -1;
   position: fixed;
   inset: 0;
-  background-color: rgba(128, 128, 128, 0.5)
+  background-color: #1C1C1C
   -webkit-tap-highlight-color: transparent;
 `;
 

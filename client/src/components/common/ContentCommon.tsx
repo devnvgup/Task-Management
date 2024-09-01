@@ -1,24 +1,39 @@
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ListTask from '../ListTask';
 import ModalAddTask from '../ModalAddTask';
+import { Dispatch, SetStateAction, createContext, useState } from 'react';
 
 type AppProps = {
-    name: string;
+  name: string;
 };
-function ContentCommon({name}:AppProps) {
-    const splitName = name.split(" ")
-  return (
 
-       <div className='allTask__container'>
-      <div className='allTask__header'>
-        <div className='allTask__title'><span className='border'>{splitName[0]}</span> {splitName[1]}</div>
-        <AddCircleOutlineIcon className='allTask__icon' />
+interface PopUpContextType {
+  statePopUp: boolean | null;
+  setStatePopup: Dispatch<SetStateAction<boolean | null>>;
+}
+
+export const PopUpContext = createContext<PopUpContextType|null>(null)
+
+function ContentCommon({ name }: AppProps) {
+  const splitName = name.split(" ")
+
+
+
+  const [statePopUp, setStatePopup] = useState<boolean | null>(false)
+  return (
+    <PopUpContext.Provider value={{ statePopUp, setStatePopup }}>
+      <div className='allTask__container'>
+        <div className='allTask__header'>
+          <div className='allTask__title'><span className='border'>{splitName[0]}</span> {splitName[1]}</div>
+          <AddCircleOutlineIcon onClick={()=>setStatePopup(true)} className='allTask__icon' />
+        </div>
+        <div className='listTask'>
+          <ListTask />
+        </div>
+        <ModalAddTask />
       </div>
-      <div className='listTask'>
-        <ListTask/>
-      </div>
-      <ModalAddTask/>
-    </div>
+    </PopUpContext.Provider>
+
   )
 }
 
