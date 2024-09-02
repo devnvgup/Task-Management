@@ -9,6 +9,9 @@ import AllTask from "../components/AllTask";
 import ImportantTask from "../components/ImportantTask";
 import CompletedTask from "../components/CompletedTask";
 import DoItNowTask from "../components/DoItNowTask";
+import { addNewTask, allTaskLoader, editTask } from "../components/utils/allTaskLoader";
+import SideBar from "../components/SideBar";
+import Content from "../components/Content";
 
 const AuthLayout = () => {
     return (
@@ -32,21 +35,37 @@ const router = createBrowserRouter([
                 element: <Homepage />,
                 children: [
                     {
-                        path: "/allTask",
-                        element: <AllTask />,
+                        element: <SideBar />,
                     },
                     {
-                        path: "/importantTask",
-                        element: <ImportantTask />,
+                        element: <Content />,
+                        children: [
+                            {
+                                path: "allTask",
+                                loader: allTaskLoader,
+                                action: async ({ params, request }) => {
+                                    if (request.method === "POST") {
+                                            return addNewTask({request, params})
+                                    } else if (request.method === "PUT") {
+                                            return editTask({request, params})
+                                    }
+                                },
+                                element: <AllTask />,
+                            },
+                            {
+                                path: "importantTask",
+                                element: <ImportantTask />,
+                            },
+                            {
+                                path: "completedTask",
+                                element: <CompletedTask />,
+                            },
+                            {
+                                path: "doItNowTask",
+                                element: <DoItNowTask />,
+                            }
+                        ]
                     },
-                    {
-                        path: "/completedTask",
-                        element: <CompletedTask />,
-                    },
-                    {
-                        path: "/doItNowTask",
-                        element: <DoItNowTask />,
-                    }
                 ]
             }
         ],

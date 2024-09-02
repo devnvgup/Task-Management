@@ -329,6 +329,10 @@ input:focus {
   top: 22px;
 }
 
+.x__btn:hover {
+ cursor: pointer;
+}
+
 .title__area {
   background-color: rgba(128, 128, 128, 0.5);
   max-width: 100%;
@@ -377,4 +381,8 @@ input:focus {
   border-radius: 50px;
   font-size: 15px;
   margin-top: 10px;
+}
+
+.create__btn {
+  cursor: pointer;
 }

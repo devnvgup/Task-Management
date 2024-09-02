@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import SideBar from '../components/SideBar'
 import Content from '../components/Content'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 function Homepage() {
   const navigate = useNavigate()
@@ -11,7 +11,7 @@ function Homepage() {
   return (
     <div className='homePage__container'>
       <div className="sidebar"><SideBar /></div>
-      <div className="content"><Content /></div>
+      <div className="content"><Outlet /></div>
     </div>
   )
 }
