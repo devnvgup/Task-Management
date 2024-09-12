@@ -99,10 +99,10 @@ function SideBar() {
                         <DoneIcon className='icon' />
                         <span>Completed</span>
                     </li>
-                    <li className='li__option' onClick={handleClickDoItNow} ref={doItNowRef}>
+                    {/* <li className='li__option' onClick={handleClickDoItNow} ref={doItNowRef}>
                         <EventAvailableIcon className='icon' />
                         <span>Do It Now</span>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className='sidebar__signout'>

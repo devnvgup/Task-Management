@@ -5,42 +5,55 @@ import { Modal as BaseModal } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import React, { ChangeEvent, useContext, useState } from 'react';
 import { PopUpContext } from './common/ContentCommon';
-import { useSubmit } from 'react-router-dom';
+import { useLocation, useSubmit } from 'react-router-dom';
 import Content from './Content';
 
-export default function ModalUnstyled() {
+type ModalUnstyledProps = {
+  isCompleteTask : boolean,
+  isAllTask: boolean,
+  isImportantTask : boolean
+};
+
+export default function ModalUnstyled({isCompleteTask, isAllTask, isImportantTask}:ModalUnstyledProps) {
   const context = useContext(PopUpContext)
+  const location = useLocation()
   let submit = useSubmit();
   const [title, setTitle] = useState("")
   const [des, setDes] = useState("")
-  const [completed, setCompleted] = useState(false)
-  const [important, setImportant] = useState(false)
+
 
   const handleToggleCompleted = (e: ChangeEvent<HTMLInputElement>) => {
-    setCompleted(e.target.checked)
-    setImportant(false)
+    context?.setIsCompleted(e.target.checked)
+    context?.setIsImportant(false)
   }
   const handleToggleImportant = (e: ChangeEvent<HTMLInputElement>) => {
-    setImportant(e.target.checked)
-    setCompleted(false)
+    context?.setIsCompleted(false)
+    context?.setIsImportant(e.target.checked)
   }
 
   const handleCreateTask = () => {
+    let status = context?.isCompleted ? "Completed" : "Incomplete"
+    if(isCompleteTask){
+      status = "Completed"
+    }
+    if(isImportantTask){
+      status = "Incomplete"
+    }
+
     context?.setStatePopup(false)
     if (!context?.isEdit) {
       const payload = {
         title,
         content: des,
-        status: completed ? "Completed" : "Incomplete"
+        status
       }
       submit(payload, {
         method: "post",
-        action: "/allTask",
+        action: location.pathname,
       });
     } else {
       let updatedTitle = title;
       let updatedDes = des;
-      let status = completed ? "Completed" : "Incomplete";
 
       const titleArea = document.querySelector(".title__area");
       const desArea = document.querySelector(".des__area");
@@ -56,7 +69,7 @@ export default function ModalUnstyled() {
       };
       submit(payload, {
         method: "put",
-        action: "/allTask",
+        action: location.pathname,
       });
     }
   }
@@ -79,11 +92,12 @@ export default function ModalUnstyled() {
           <input type="datetime-local" name="appointment" className='datetime-local' />
           <div className='completed__container'>
             <span>Toggle Completed</span>
-            <input className='completed' onChange={handleToggleCompleted} style={{ width: "auto" }} type='checkbox' checked={completed} />
+            <input className='completed' onChange={handleToggleCompleted} style={{ width: "auto" }} type='checkbox' checked={isCompleteTask || context?.isCompleted || false} disabled = {isCompleteTask || isImportantTask}/>
           </div>
+
           <div className='important__container'>
             <span>Toggle Important</span>
-            <input className='important' onChange={handleToggleImportant} style={{ width: "auto" }} type='checkbox' checked={important} />
+            <input className='important' onChange={handleToggleImportant} style={{ width: "auto" }} type='checkbox' checked={isImportantTask || context?.isImportant || false} disabled = {isCompleteTask || isImportantTask}/>
           </div>
           <div className='create__container'>
             <div className='create__btn' onClick={handleCreateTask}>

@@ -9,6 +9,9 @@ function DefaultItem() {
     if (context) {
       context.setStatePopup(true)
       context.setIsEdit(false)
+      //reset checkboxes when add new
+      context.setIsCompleted(false)
+      context.setIsImportant(false)
     }
   }
   return (

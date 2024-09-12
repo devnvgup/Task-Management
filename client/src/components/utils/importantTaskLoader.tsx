@@ -2,9 +2,9 @@ import axios from "axios";
 
 
 
-export const allTaskLoader = async () => {
+export const importantTaskLoader = async () => {
     try {
-        const response = await axios.get("http://localhost:3000/allTask");
+        const response = await axios.get("http://localhost:3000/allTaskImportant");
         const data = response?.data?.tasks
         data.push({ default: true })
         return data;

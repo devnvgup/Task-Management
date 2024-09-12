@@ -6,7 +6,12 @@ function AllTask() {
 
   return (
     <>
-      <ContentCommon name="All Tasks" data={data} />
+      <ContentCommon
+        name="All Tasks"
+        data={data}
+        isCompleteTask={false}
+        isAllTask={true}
+        isImportantTask={false} />
     </>
   )
 }

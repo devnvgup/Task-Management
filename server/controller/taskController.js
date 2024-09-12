@@ -3,8 +3,29 @@ const TaskModel = require('../Schemas/taskManageSchema');
 
 
 const getAllTask = async (req, res) => {
+    console.log(req.params.id);
     try {
-        const tasks = await TaskModel.find(req.params.id)
+        const tasks = await TaskModel.find()
+        res.status(200).json({tasks});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error })
+    }
+}
+
+const getAllTaskImportant = async (req, res) => {
+    try {
+        const tasks = await TaskModel.find({status:"Incomplete"})
+        res.status(200).json({tasks});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error })
+    }
+}
+
+const getAllTaskCompleted = async (req, res) => {
+    try {
+        const tasks = await TaskModel.find({status:"Completed"})
         res.status(200).json({tasks});
     } catch (error) {
         console.log(error);
@@ -36,7 +57,6 @@ const updateTask = async (req, res) => {
 }
 
 const deleteTask = async (req, res) => {
-    const arg = req.body
     try {
         const foundTask = await TaskModel.findByIdAndDelete(req.params.id)
         if (!foundTask) return res.status(404).json({ message: 'Task not found' });
@@ -51,5 +71,7 @@ module.exports = {
     addTask,
     updateTask,
     deleteTask,
-    getAllTask
+    getAllTask,
+    getAllTaskImportant,
+    getAllTaskCompleted
 }
